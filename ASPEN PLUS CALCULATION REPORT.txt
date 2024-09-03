@@ -1,0 +1,1029 @@
+
+
+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+ + +                                                                         + +
+ + +                      ASPEN PLUS CALCULATION REPORT                      + +
+ + +                                                                         + +
+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+
+ ASPEN PLUS IS A TRADEMARK OF           HOTLINE:
+ ASPEN TECHNOLOGY, INC.                 U.S.A. 888/996-7100
+ 781/221-6400                           EUROPE (44) 1189-226555
+
+ PLATFORM: WIN-X64                                       SEPTEMBER 3, 2024   
+ VERSION: 37.0   Build 395                               TUESDAY     
+ INSTALLATION:                                           2:25:52 P.M.        
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE    I
+                                                                                
+
+
+
+      ASPEN PLUS (R) IS A PROPRIETARY PRODUCT OF ASPEN TECHNOLOGY, INC.
+      (ASPENTECH), AND MAY BE USED ONLY UNDER AGREEMENT WITH ASPENTECH.
+      RESTRICTED RIGHTS LEGEND:  USE, REPRODUCTION, OR DISCLOSURE BY THE
+      U.S. GOVERNMENT IS SUBJECT TO RESTRICTIONS SET FORTH IN 
+      (i) FAR 52.227-14, Alt. III, (ii) FAR 52.227-19, (iii) DFARS 
+      252.227-7013(c)(1)(ii), or (iv) THE ACCOMPANYING LICENSE AGREEMENT,
+      AS APPLICABLE. FOR PURPOSES OF THE FAR, THIS SOFTWARE SHALL BE DEEMED
+      TO BE "UNPUBLISHED" AND LICENSED WITH DISCLOSURE PROHIBITIONS.
+      CONTRACTOR/SUBCONTRACTOR: ASPEN TECHNOLOGY, INC. 20 CROSBY DRIVE,
+      BEDFORD, MA 01730.
+                               TABLE OF CONTENTS                                
+
+
+            RUN CONTROL SECTION....................................  1
+                 RUN CONTROL INFORMATION...........................  1
+
+            FLOWSHEET SECTION......................................  2
+                 FLOWSHEET CONNECTIVITY BY STREAMS.................  2
+                 FLOWSHEET CONNECTIVITY BY BLOCKS..................  2
+                 COMPUTATIONAL SEQUENCE............................  2
+                 OVERALL FLOWSHEET BALANCE.........................  2
+
+            PHYSICAL PROPERTIES SECTION............................  3
+                 COMPONENTS........................................  3
+
+            U-O-S BLOCK SECTION....................................  4
+                 BLOCK:  B1       MODEL: HEATER....................  4
+                 BLOCK:  B2       MODEL: FLASH2....................  5
+                 BLOCK:  B3       MODEL: RADFRAC...................  6
+                 BLOCK:  B4       MODEL: RADFRAC................... 13
+                 BLOCK:  B5       MODEL: COMPR..................... 18
+
+            STREAM SECTION......................................... 20
+                 CO2 FEED H2S S2 S3................................ 20
+                 S4 S5 S7 S9....................................... 21
+
+            PROBLEM STATUS SECTION................................. 22
+                 BLOCK STATUS...................................... 22
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 1       
+                                                                                
+                              RUN CONTROL SECTION                               
+
+ RUN CONTROL INFORMATION                 
+ -----------------------
+
+ THIS COPY OF ASPEN PLUS LICENSED TO INDIAN INSTITUTE OF TECH        
+
+ TYPE OF RUN: NEW 
+
+ INPUT FILE NAME: _5758yhu.inm
+
+ OUTPUT PROBLEM DATA FILE NAME: _5758yhu 
+ LOCATED IN:                    
+
+
+ PDF SIZE USED FOR INPUT TRANSLATION:
+   NUMBER OF FILE RECORDS (PSIZE) =     0
+   NUMBER OF IN-CORE RECORDS      =   256
+ PSIZE NEEDED FOR SIMULATION    =   256
+
+ CALLING PROGRAM NAME:          apmain  
+ LOCATED IN: C:\Program Files\AspenTech\Aspen Plus V11.0\Engine\\xeq
+
+ SIMULATION REQUESTED FOR ENTIRE FLOWSHEET
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 2       
+                                                                                
+                               FLOWSHEET SECTION                                
+
+ FLOWSHEET CONNECTIVITY BY STREAMS       
+ ---------------------------------
+
+   STREAM     SOURCE     DEST           STREAM     SOURCE     DEST
+   FEED       ----       B1             S2         B1         B2      
+   S3         B2         B3             S4         B2         ----    
+   S5         B3         B5             H2S        B3         ----    
+   S9         B4         ----           CO2        B4         ----    
+   S7         B5         B4                                           
+
+ FLOWSHEET CONNECTIVITY BY BLOCKS        
+ --------------------------------
+
+   BLOCK        INLETS                         OUTLETS
+   B1           FEED                           S2                          
+   B2           S2                             S3 S4                       
+   B3           S3                             S5 H2S                      
+   B4           S7                             S9 CO2                      
+   B5           S5                             S7                          
+
+ COMPUTATIONAL SEQUENCE                  
+ ----------------------
+
+ SEQUENCE USED WAS:
+    B1 B2 B3 B5 B4                                                         
+
+ OVERALL FLOWSHEET BALANCE               
+ -------------------------
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    CONVENTIONAL COMPONENTS (KMOL/HR )
+       H2                        12120.2         12120.2        0.198628E-09
+       CO                        294.913         294.913        0.198548E-09
+       N2                        709.564         709.564        0.198537E-09
+       CH4                       2.21739         2.21739        0.197212E-09
+       AR                        128.609         128.609        0.197934E-09
+       H2S                       31.0434         31.0434       -0.251244E-07
+       CO2                       8836.29         8836.29       -0.182781E-09
+       NH3                       4.43478         4.43478       -0.253834E-07
+       H2O                       46.5651         46.5651       -0.268724E-08
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            22173.9         22173.9       -0.492198E-15
+       MASS(KG/HR   )            448600.         448600.       -0.201450E-09
+       ENTHALPY(CAL/SEC )      -0.233529E+09   -0.240542E+09    0.291569E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             389773.      KG/HR           
+    PRODUCT STREAMS CO2E          389773.      KG/HR           
+    NET STREAMS CO2E PRODUCTION  0.709050E-04  KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION        0.709050E-04  KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 3       
+                                                                                
+                          PHYSICAL PROPERTIES SECTION                           
+
+ COMPONENTS                              
+ ----------
+
+  ID       TYPE  ALIAS          NAME
+   H2       C     H2             HYDROGEN                        
+   CO       C     CO             CARBON-MONOXIDE                 
+   N2       C     N2             NITROGEN                        
+   CH4      C     CH4            METHANE                         
+   AR       C     AR             ARGON                           
+   H2S      C     H2S            HYDROGEN-SULFIDE                
+   CO2      C     CO2            CARBON-DIOXIDE                  
+   NH3      C     H3N            AMMONIA                         
+   H2O      C     H2O            WATER                           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 4       
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B1       MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          FEED    
+   OUTLET STREAM:         S2      
+   PROPERTY OPTION SET:   PENG-ROB  STANDARD PR EQUATION OF STATE               
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            22173.9         22173.9         0.00000    
+       MASS(KG/HR   )            448600.         448600.         0.00000    
+       ENTHALPY(CAL/SEC )      -0.233529E+09   -0.235515E+09    0.843404E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             389773.      KG/HR           
+    PRODUCT STREAMS CO2E          389773.      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  TP  FLASH
+   SPECIFIED TEMPERATURE                C                         0.0        
+   SPECIFIED PRESSURE                   BAR                      32.7000     
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    0.0000    
+   OUTLET PRESSURE       BAR                                  32.700    
+   HEAT DUTY             CAL/SEC                            -0.19863E+07
+   OUTLET VAPOR FRACTION                                     0.99806    
+
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 5       
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B1       MODEL: HEATER (CONTINUED)          
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      H2               0.54660        0.11976E-05    0.54766        0.45729E+06
+      CO               0.13300E-01    0.11275E-07    0.13326E-01    0.11819E+07
+      N2               0.32000E-01    0.32529E-07    0.32062E-01    0.98564E+06
+      CH4              0.10000E-03    0.11206E-08    0.10019E-03     89409.    
+      AR               0.58000E-02    0.19575E-06    0.58113E-02     29687.    
+      H2S              0.14000E-02    0.15647E-04    0.14027E-02     89.647    
+      CO2              0.39850        0.92814E-04    0.39927         4301.9    
+      NH3              0.20000E-03    0.14594E-01    0.17203E-03    0.11788E-01
+      H2O              0.21000E-02    0.98530        0.18983E-03    0.19267E-03
+
+ BLOCK:  B2       MODEL: FLASH2          
+ ------------------------------
+   INLET STREAM:          S2      
+   OUTLET VAPOR STREAM:   S3      
+   OUTLET LIQUID STREAM:  S4      
+   PROPERTY OPTION SET:   PENG-ROB  STANDARD PR EQUATION OF STATE               
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            22173.9         22173.9       -0.164066E-15
+       MASS(KG/HR   )            448600.         448600.       -0.129754E-15
+       ENTHALPY(CAL/SEC )      -0.235515E+09   -0.235509E+09   -0.279766E-04
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             389773.      KG/HR           
+    PRODUCT STREAMS CO2E          389773.      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  TP  FLASH
+   SPECIFIED TEMPERATURE C                                   0.0        
+   SPECIFIED PRESSURE    BAR                                32.3000     
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 6       
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B2       MODEL: FLASH2 (CONTINUED)          
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    0.0000    
+   OUTLET PRESSURE       BAR                                  32.300    
+   HEAT DUTY             CAL/SEC                              6588.9    
+   VAPOR FRACTION                                            0.99806    
+
+
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      H2               0.54660        0.11819E-05    0.54766        0.46337E+06
+      CO               0.13300E-01    0.11137E-07    0.13326E-01    0.11965E+07
+      N2               0.32000E-01    0.32138E-07    0.32062E-01    0.99765E+06
+      CH4              0.10000E-03    0.11077E-08    0.10019E-03     90449.    
+      AR               0.58000E-02    0.19341E-06    0.58113E-02     30046.    
+      H2S              0.14000E-02    0.15492E-04    0.14027E-02     90.543    
+      CO2              0.39850        0.91857E-04    0.39927         4346.7    
+      NH3              0.20000E-03    0.14489E-01    0.17227E-03    0.11889E-01
+      H2O              0.21000E-02    0.98540        0.19149E-03    0.19433E-03
+
+ BLOCK:  B3       MODEL: RADFRAC         
+ -------------------------------
+    INLETS   - S3       STAGE  20
+    OUTLETS  - S5       STAGE   1
+               H2S      STAGE  44
+   PROPERTY OPTION SET:   PENG-ROB  STANDARD PR EQUATION OF STATE               
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            22130.9         22130.9         0.00000    
+       MASS(KG/HR   )            447827.         447827.       -0.230369E-10
+       ENTHALPY(CAL/SEC )      -0.234692E+09   -0.236582E+09    0.798890E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             389773.      KG/HR           
+    PRODUCT STREAMS CO2E          389773.      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 7       
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B3       MODEL: RADFRAC (CONTINUED)         
+
+
+
+                         **********************
+                         ****  INPUT DATA  ****
+                         **********************
+
+   ****   INPUT PARAMETERS   ****
+
+    NUMBER OF STAGES                                        44
+    ALGORITHM OPTION                                      STANDARD    
+    ABSORBER OPTION                                       NO      
+    INITIALIZATION OPTION                                 STANDARD    
+    HYDRAULIC PARAMETER CALCULATIONS                      NO      
+    INSIDE LOOP CONVERGENCE METHOD                        BROYDEN 
+    DESIGN SPECIFICATION METHOD                           NESTED  
+    MAXIMUM NO. OF OUTSIDE LOOP ITERATIONS                  10
+    MAXIMUM NO. OF INSIDE LOOP ITERATIONS                   10
+    MAXIMUM NUMBER OF FLASH ITERATIONS                      30
+    FLASH TOLERANCE                                          0.000100000
+    OUTSIDE LOOP CONVERGENCE TOLERANCE                       0.000100000
+
+   ****   COL-SPECS   ****
+
+    MOLAR VAPOR DIST / TOTAL DIST                            1.00000    
+    MOLAR REFLUX RATIO                                       2.40000    
+    MASS BOTTOMS RATE              KG/HR                 1,050.00       
+
+   ****    PROFILES   ****
+
+    P-SPEC          STAGE   1  PRES, BAR                    32.2000     
+                           44                               32.3000     
+
+                          *******************
+                          ****  RESULTS  ****
+                          *******************
+
+
+   ***   COMPONENT SPLIT FRACTIONS   ***
+
+                             OUTLET STREAMS 
+                             --------------
+                  S5           H2S     
+    COMPONENT:
+    H2          1.0000       0.0000    
+    CO          1.0000       0.0000    
+    N2          1.0000       0.0000    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 8       
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B3       MODEL: RADFRAC (CONTINUED)         
+
+   ***   COMPONENT SPLIT FRACTIONS   ***
+
+                             OUTLET STREAMS 
+                             --------------
+                  S5           H2S     
+    COMPONENT:
+    CH4         1.0000       0.0000    
+    AR          1.0000       0.0000    
+    H2S         .15015       .84985    
+    CO2         .99998       .24648E-04
+    NH3         .34120E-10   1.0000    
+    H2O         0.0000       1.0000    
+
+ 
+   ***    SUMMARY OF KEY RESULTS    ***
+
+    TOP STAGE TEMPERATURE          C                       -37.0569     
+    BOTTOM STAGE TEMPERATURE       C                        50.9903     
+    TOP STAGE LIQUID FLOW          KMOL/HR              53,031.1        
+    BOTTOM STAGE LIQUID FLOW       KMOL/HR                  34.6499     
+    TOP STAGE VAPOR FLOW           KMOL/HR              22,096.3        
+    BOILUP VAPOR FLOW              KMOL/HR              53,626.7        
+    MOLAR REFLUX RATIO                                       2.40000    
+    MOLAR BOILUP RATIO                                   1,547.67       
+    CONDENSER DUTY (W/O SUBCOOL)   CAL/SEC                  -0.495243+08
+    REBOILER DUTY                  CAL/SEC                   0.476342+08
+
+   ****   MAXIMUM FINAL RELATIVE ERRORS   ****
+
+    DEW POINT                       0.38331E-04  STAGE= 41
+    BUBBLE POINT                    0.24767E-03  STAGE= 41
+    COMPONENT MASS BALANCE          0.45135E-05  STAGE= 19 COMP=H2O     
+    ENERGY BALANCE                  0.48029E-04  STAGE= 39
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 9       
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B3       MODEL: RADFRAC (CONTINUED)         
+
+   ****    PROFILES   ****
+
+   **NOTE** REPORTED VALUES FOR STAGE LIQUID AND VAPOR RATES ARE THE FLOWS
+            FROM THE STAGE INCLUDING ANY SIDE PRODUCT.
+
+                                          ENTHALPY
+ STAGE TEMPERATURE   PRESSURE             CAL/MOL            HEAT DUTY
+       C             BAR            LIQUID       VAPOR        CAL/SEC 
+
+   1  -37.057        32.200       -96993.      -38519.      -.49524+08
+   2  -12.386        32.202       -96931.      -77422.                
+  17  -10.969        32.237       -96683.      -79653.                
+  18  -10.962        32.240       -96651.      -79632.                
+  19  -10.951        32.242       -96612.      -79608.                
+  20  -2.8145        32.244       -96792.      -93909.                
+  21  -2.5632        32.247       -96754.      -94281.                
+  32  -2.2237        32.272       -94240.      -92301.                
+  33  -2.1266        32.274       -93501.      -91736.                
+  34  -1.9933        32.277       -92518.      -90997.                
+  43   41.983        32.298       -11845.      -15069.                
+  44   50.990        32.300       -16616.      -8644.0       .47634+08
+
+ STAGE     FLOW RATE                  FEED RATE               PRODUCT RATE
+            KMOL/HR                    KMOL/HR                  KMOL/HR 
+       LIQUID     VAPOR       LIQUID    VAPOR    MIXED      LIQUID    VAPOR
+   1 0.5303E+05 0.2210E+05                                           .22096+05
+   2 0.6300E+05 0.7513E+05                                                    
+  17 0.6373E+05 0.8583E+05                                                    
+  18 0.6373E+05 0.8583E+05                                                    
+  19 0.6244E+05 0.8583E+05            .22131+05                               
+  20 0.6721E+05 0.6241E+05  .43195-03                                         
+  21 0.6737E+05 0.6718E+05                                                    
+  32 0.6744E+05 0.6740E+05                                                    
+  33 0.6744E+05 0.6740E+05                                                    
+  34 0.6743E+05 0.6741E+05                                                    
+  43 0.5366E+05 0.5456E+05                                                    
+  44  34.65     0.5363E+05                                   34.6498          
+
+    ****  MASS FLOW PROFILES  ****
+
+ STAGE     FLOW RATE                  FEED RATE               PRODUCT RATE
+            KG/HR                      KG/HR                    KG/HR   
+       LIQUID     VAPOR       LIQUID    VAPOR    MIXED      LIQUID    VAPOR
+   1 0.2315E+07 0.4468E+06                                           .44678+06
+   2 0.2760E+07 0.2762E+07                                                    
+  17 0.2792E+07 0.3239E+07                                                    
+  18 0.2792E+07 0.3239E+07                                                    
+  19 0.2735E+07 0.3238E+07            .44783+06                               
+  20 0.2954E+07 0.2734E+07  .77767-02                                         
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 10      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B3       MODEL: RADFRAC (CONTINUED)         
+
+    ****  MASS FLOW PROFILES  ****
+
+ STAGE     FLOW RATE                  FEED RATE               PRODUCT RATE
+            KG/HR                      KG/HR                    KG/HR   
+       LIQUID     VAPOR       LIQUID    VAPOR    MIXED      LIQUID    VAPOR
+  21 0.2961E+07 0.2953E+07                                                    
+  32 0.2945E+07 0.2948E+07                                                    
+  33 0.2940E+07 0.2944E+07                                                    
+  34 0.2932E+07 0.2939E+07                                                    
+  43 0.1787E+07 0.1883E+07                                                    
+  44  1050.     0.1785E+07                                 1050.0000          
+
+                         ****   MOLE-X-PROFILE     ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1    0.73093E-02   0.72231E-03   0.17794E-02   0.13697E-04   0.65296E-03
+      2    0.39654E-02   0.31264E-03   0.77756E-03   0.58480E-05   0.26898E-03
+     17    0.35717E-02   0.26198E-03   0.65012E-03   0.44085E-05   0.20757E-03
+     18    0.35717E-02   0.26198E-03   0.65000E-03   0.44097E-05   0.20759E-03
+     19    0.35703E-02   0.26190E-03   0.64967E-03   0.44103E-05   0.20757E-03
+     20    0.11642E-03   0.22190E-04   0.56662E-04   0.73289E-06   0.28884E-04
+     21    0.38292E-05   0.18901E-05   0.49669E-05   0.12222E-06   0.40339E-05
+     32    0.18482E-21   0.32352E-17   0.11185E-16   0.36345E-15   0.16235E-14
+     33    0.60412E-23   0.27488E-18   0.96485E-18   0.61879E-16   0.22784E-15
+     34    0.19689E-24   0.23315E-19   0.82742E-19   0.10592E-16   0.31996E-16
+     43    0.68393E-39   0.34536E-30   0.46022E-30   0.59438E-24   0.11792E-24
+     44    0.57449E-41   0.62939E-32   0.65574E-32   0.39390E-25   0.55490E-26
+
+                         ****   MOLE-X-PROFILE     ****
+   STAGE     H2S           CO2           NH3           H2O     
+      1    0.62244E-03   0.98890       0.84678E-13   0.12516E-23
+      2    0.74062E-03   0.99393       0.27652E-12   0.16195E-22
+     17    0.38055E-02   0.99149       0.87798E-05   0.47197E-06
+     18    0.41421E-02   0.99113       0.27776E-04   0.59238E-05
+     19    0.45041E-02   0.99064       0.87920E-04   0.74448E-04
+     20    0.49673E-02   0.99465       0.83770E-04   0.69707E-04
+     21    0.55459E-02   0.99429       0.83630E-04   0.69556E-04
+     32    0.33702E-01   0.96615       0.83354E-04   0.69140E-04
+     33    0.41974E-01   0.95787       0.84328E-04   0.69034E-04
+     34    0.52995E-01   0.94685       0.87823E-04   0.68903E-04
+     43    0.90335       0.31612E-01   0.58763E-01   0.62753E-02
+     44    0.76138       0.62858E-02   0.11003       0.12230    
+
+                         ****   MOLE-Y-PROFILE     ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1    0.54852       0.13347E-01   0.32112E-01   0.10035E-03   0.58204E-02
+      2    0.16649       0.44354E-02   0.10701E-01   0.39184E-04   0.21728E-02
+     17    0.14387       0.36306E-02   0.87501E-02   0.29108E-04   0.16526E-02
+     18    0.14387       0.36306E-02   0.87499E-02   0.29108E-04   0.16525E-02
+     19    0.14387       0.36306E-02   0.87498E-02   0.29109E-04   0.16526E-02
+     20    0.35722E-02   0.26205E-03   0.65004E-03   0.44128E-05   0.20769E-03
+     21    0.11648E-03   0.22202E-04   0.56691E-04   0.73327E-06   0.28899E-04
+     32    0.56459E-20   0.38056E-16   0.12920E-15   0.21449E-14   0.11583E-13
+     33    0.18492E-21   0.32369E-17   0.11191E-16   0.36364E-15   0.16244E-14
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 11      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B3       MODEL: RADFRAC (CONTINUED)         
+
+                         ****   MOLE-Y-PROFILE     ****
+   STAGE     H2            CO            N2            CH4           AR      
+     34    0.60443E-23   0.27502E-18   0.96535E-18   0.61911E-16   0.22796E-15
+     43    0.44168E-37   0.10134E-28   0.17488E-28   0.54366E-23   0.16027E-23
+     44    0.68437E-39   0.34557E-30   0.46051E-30   0.59474E-24   0.11799E-24
+
+                         ****   MOLE-Y-PROFILE     ****
+   STAGE     H2S           CO2           NH3           H2O     
+      1    0.21094E-03   0.39989       0.58870E-14   0.13411E-25
+      2    0.50141E-03   0.81566       0.61504E-13   0.88742E-24
+     17    0.26472E-02   0.83942       0.20612E-05   0.27939E-07
+     18    0.28801E-02   0.83919       0.65195E-05   0.35046E-06
+     19    0.31300E-02   0.83892       0.20625E-04   0.43988E-05
+     20    0.40838E-02   0.99119       0.26880E-04   0.65909E-05
+     21    0.45772E-02   0.99516       0.27063E-04   0.66602E-05
+     32    0.26995E-01   0.97297       0.26627E-04   0.63821E-05
+     33    0.33328E-01   0.96664       0.26836E-04   0.63024E-05
+     34    0.41605E-01   0.95836       0.27812E-04   0.61990E-05
+     43    0.85450       0.10770       0.37302E-01   0.49688E-03
+     44    0.90344       0.31628E-01   0.58730E-01   0.62003E-02
+
+                         ****   K-VALUES           ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1     75.044        18.478        18.047        7.3264        8.9138    
+      2     41.985        14.187        13.762        6.7004        8.0779    
+     17     40.279        13.858        13.459        6.6026        7.9615    
+     18     40.279        13.858        13.461        6.6008        7.9606    
+     19     40.294        13.862        13.467        6.6000        7.9611    
+     20     30.683        11.809        11.472        6.0211        7.1904    
+     21     30.420        11.747        11.414        5.9996        7.1641    
+     32     30.548        11.763        11.550        5.9023        7.1344    
+     33     30.609        11.776        11.599        5.8772        7.1295    
+     34     30.698        11.796        11.666        5.8456        7.1248    
+     43     64.544        29.331        37.984        9.1438        13.587    
+     44     119.12        54.904        70.225        15.098        21.262    
+
+                         ****   K-VALUES           ****
+   STAGE     H2S           CO2           NH3           H2O     
+      1    0.33889       0.40438       0.69523E-01   0.10715E-01
+      2    0.67702       0.82064       0.22242       0.54797E-01
+     17    0.69563       0.84662       0.23477       0.59198E-01
+     18    0.69533       0.84670       0.23473       0.59166E-01
+     19    0.69494       0.84684       0.23460       0.59093E-01
+     20    0.82214       0.99651       0.32088       0.94552E-01
+     21    0.82533        1.0009       0.32361       0.95754E-01
+     32    0.80106        1.0071       0.31946       0.92317E-01
+     33    0.79421        1.0091       0.31826       0.91307E-01
+     34    0.78533        1.0121       0.31671       0.89983E-01
+     43    0.94591        3.4069       0.63490       0.79213E-01
+     44     1.1866        5.0318       0.53380       0.50697E-01
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 12      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B3       MODEL: RADFRAC (CONTINUED)         
+
+                         ****   MASS-X-PROFILE     ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1    0.33754E-03   0.46347E-03   0.11419E-02   0.50338E-05   0.59753E-03
+      2    0.18243E-03   0.19985E-03   0.49711E-03   0.21411E-05   0.24523E-03
+     17    0.16436E-03   0.16752E-03   0.41574E-03   0.16145E-05   0.18929E-03
+     18    0.16438E-03   0.16753E-03   0.41570E-03   0.16151E-05   0.18932E-03
+     19    0.16434E-03   0.16751E-03   0.41556E-03   0.16156E-05   0.18934E-03
+     20    0.53401E-05   0.14142E-04   0.36116E-04   0.26752E-06   0.26254E-04
+     21    0.17563E-06   0.12046E-05   0.31658E-05   0.44613E-07   0.36665E-05
+     32    0.85314E-23   0.20751E-17   0.71751E-17   0.13352E-15   0.14851E-14
+     33    0.27939E-24   0.17664E-18   0.62008E-18   0.22774E-16   0.20881E-15
+     34    0.91287E-26   0.15020E-19   0.53310E-19   0.39081E-17   0.29398E-16
+     43    0.41412E-40   0.29056E-30   0.38724E-30   0.28641E-24   0.14149E-24
+     44    0.38217E-42   0.58177E-32   0.60619E-32   0.20853E-25   0.73152E-26
+
+                         ****   MASS-X-PROFILE     ****
+   STAGE     H2S           CO2           NH3           H2O     
+      1    0.48596E-03   0.99697       0.33035E-13   0.51652E-24
+      2    0.57607E-03   0.99830       0.10748E-12   0.66585E-23
+     17    0.29607E-02   0.99610       0.34133E-05   0.19410E-06
+     18    0.32229E-02   0.99583       0.10799E-04   0.24364E-05
+     19    0.35051E-02   0.99549       0.34189E-04   0.30624E-04
+     20    0.38520E-02   0.99600       0.32461E-04   0.28573E-04
+     21    0.43006E-02   0.99563       0.32406E-04   0.28511E-04
+     32    0.26302E-01   0.97364       0.32506E-04   0.28522E-04
+     33    0.32819E-01   0.96712       0.32947E-04   0.28532E-04
+     34    0.41540E-01   0.95840       0.34399E-04   0.28549E-04
+     43    0.92476       0.41788E-01   0.30060E-01   0.33956E-02
+     44    0.85632       0.91289E-02   0.61836E-01   0.72711E-01
+
+                         ****   MASS-Y-PROFILE     ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1    0.54687E-01   0.18489E-01   0.44491E-01   0.79621E-04   0.11499E-01
+      2    0.91298E-02   0.33796E-02   0.81545E-02   0.17100E-04   0.23611E-02
+     17    0.76855E-02   0.26949E-02   0.64956E-02   0.12375E-04   0.17494E-02
+     18    0.76858E-02   0.26950E-02   0.64959E-02   0.12376E-04   0.17495E-02
+     19    0.76864E-02   0.26952E-02   0.64963E-02   0.12377E-04   0.17497E-02
+     20    0.16440E-03   0.16757E-03   0.41572E-03   0.16162E-05   0.18941E-03
+     21    0.53420E-05   0.14148E-04   0.36129E-04   0.26762E-06   0.26263E-04
+     32    0.26020E-21   0.24370E-16   0.82745E-16   0.78670E-15   0.10578E-13
+     33    0.85344E-23   0.20758E-17   0.71776E-17   0.13356E-15   0.14856E-14
+     34    0.27949E-24   0.17670E-18   0.62031E-18   0.22782E-16   0.20889E-15
+     43    0.25803E-38   0.82258E-29   0.14197E-28   0.25276E-23   0.18554E-23
+     44    0.41436E-40   0.29073E-30   0.38746E-30   0.28657E-24   0.14156E-24
+
+                         ****   MASS-Y-PROFILE     ****
+   STAGE     H2S           CO2           NH3           H2O     
+      1    0.35556E-03   0.87040       0.49585E-14   0.11949E-25
+      2    0.46487E-03   0.97649       0.28493E-13   0.43489E-24
+     17    0.23908E-02   0.97897       0.93024E-06   0.13338E-07
+     18    0.26013E-02   0.97876       0.29425E-05   0.16732E-06
+     19    0.28273E-02   0.97852       0.93095E-05   0.21003E-05
+     20    0.31775E-02   0.99587       0.10451E-04   0.27107E-05
+     21    0.35489E-02   0.99636       0.10485E-04   0.27296E-05
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 13      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B3       MODEL: RADFRAC (CONTINUED)         
+
+                         ****   MASS-Y-PROFILE     ****
+   STAGE     H2S           CO2           NH3           H2O     
+     32    0.21034E-01   0.97895       0.10367E-04   0.26286E-05
+     33    0.26006E-01   0.97398       0.10464E-04   0.25995E-05
+     34    0.32525E-01   0.96746       0.10865E-04   0.25616E-05
+     43    0.84397       0.13736       0.18410E-01   0.25941E-03
+     44    0.92480       0.41807E-01   0.30041E-01   0.33549E-02
+
+ BLOCK:  B4       MODEL: RADFRAC         
+ -------------------------------
+    INLETS   - S7       STAGE   2
+    OUTLETS  - S9       STAGE   1
+               CO2      STAGE  10
+   PROPERTY OPTION SET:   PENG-ROB  STANDARD PR EQUATION OF STATE               
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            22096.3         22096.3       -0.164642E-15
+       MASS(KG/HR   )            446777.         446777.       -0.179181E-09
+       ENTHALPY(CAL/SEC )      -0.233149E+09   -0.239565E+09    0.267831E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             389763.      KG/HR           
+    PRODUCT STREAMS CO2E          389763.      KG/HR           
+    NET STREAMS CO2E PRODUCTION  0.886693E-04  KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION        0.886693E-04  KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 14      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B4       MODEL: RADFRAC (CONTINUED)         
+
+
+
+                         **********************
+                         ****  INPUT DATA  ****
+                         **********************
+
+   ****   INPUT PARAMETERS   ****
+
+    NUMBER OF STAGES                                        10
+    ALGORITHM OPTION                                      STANDARD    
+    ABSORBER OPTION                                       NO      
+    INITIALIZATION OPTION                                 STANDARD    
+    HYDRAULIC PARAMETER CALCULATIONS                      NO      
+    INSIDE LOOP CONVERGENCE METHOD                        BROYDEN 
+    DESIGN SPECIFICATION METHOD                           NESTED  
+    MAXIMUM NO. OF OUTSIDE LOOP ITERATIONS                  25
+    MAXIMUM NO. OF INSIDE LOOP ITERATIONS                   10
+    MAXIMUM NUMBER OF FLASH ITERATIONS                      30
+    FLASH TOLERANCE                                          0.000100000
+    OUTSIDE LOOP CONVERGENCE TOLERANCE                       0.000100000
+
+   ****   COL-SPECS   ****
+
+    MOLAR VAPOR DIST / TOTAL DIST                            1.00000    
+    MOLAR REFLUX RATIO                                       2.40000    
+    MASS BOTTOMS RATE              KG/HR               329,477.         
+
+   ****    PROFILES   ****
+
+    P-SPEC          STAGE   1  PRES, BAR                    69.9000     
+                           10                               70.1000     
+
+                          *******************
+                          ****  RESULTS  ****
+                          *******************
+
+
+   ***   COMPONENT SPLIT FRACTIONS   ***
+
+                             OUTLET STREAMS 
+                             --------------
+                  S9           CO2     
+    COMPONENT:
+    H2          1.0000       .27587E-05
+    CO          .99982       .18136E-03
+    N2          .99980       .20491E-03
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 15      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B4       MODEL: RADFRAC (CONTINUED)         
+
+   ***   COMPONENT SPLIT FRACTIONS   ***
+
+                             OUTLET STREAMS 
+                             --------------
+                  S9           CO2     
+    COMPONENT:
+    CH4         .99685       .31506E-02
+    AR          .99845       .15484E-02
+    H2S         .99379E-01   .90062    
+    CO2         .15314       .84686    
+    NH3         .67440E-02   .99326    
+
+ 
+   ***    SUMMARY OF KEY RESULTS    ***
+
+    TOP STAGE TEMPERATURE          C                       -60.1947     
+    BOTTOM STAGE TEMPERATURE       C                        29.2802     
+    TOP STAGE LIQUID FLOW          KMOL/HR              35,061.0        
+    BOTTOM STAGE LIQUID FLOW       KMOL/HR               7,487.52       
+    TOP STAGE VAPOR FLOW           KMOL/HR              14,608.8        
+    BOILUP VAPOR FLOW              KMOL/HR             135,824.         
+    MOLAR REFLUX RATIO                                       2.40000    
+    MOLAR BOILUP RATIO                                      18.1400     
+    CONDENSER DUTY (W/O SUBCOOL)   CAL/SEC                  -0.363997+08
+    REBOILER DUTY                  CAL/SEC                   0.299834+08
+
+   ****   MAXIMUM FINAL RELATIVE ERRORS   ****
+
+    DEW POINT                       0.11301E-04  STAGE=  2
+    BUBBLE POINT                    0.30786E-04  STAGE=  2
+    COMPONENT MASS BALANCE          0.42326E-07  STAGE= 10 COMP=H2      
+    ENERGY BALANCE                  0.17687E-03  STAGE=  2
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 16      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B4       MODEL: RADFRAC (CONTINUED)         
+
+   ****    PROFILES   ****
+
+   **NOTE** REPORTED VALUES FOR STAGE LIQUID AND VAPOR RATES ARE THE FLOWS
+            FROM THE STAGE INCLUDING ANY SIDE PRODUCT.
+
+                                          ENTHALPY
+ STAGE TEMPERATURE   PRESSURE             CAL/MOL            HEAT DUTY
+       C             BAR            LIQUID       VAPOR        CAL/SEC 
+
+   1  -60.195        69.900       -96051.      -9883.0      -.36400+08
+   2   25.062        69.922       -95189.      -92178.                
+   8   29.217        70.056       -95898.      -95088.                
+   9   29.253        70.078       -95901.      -95101.                
+  10   29.280        70.100       -95901.      -95106.       .29983+08
+
+ STAGE     FLOW RATE                  FEED RATE               PRODUCT RATE
+            KMOL/HR                    KMOL/HR                  KMOL/HR 
+       LIQUID     VAPOR       LIQUID    VAPOR    MIXED      LIQUID    VAPOR
+   1 0.3506E+05 0.1461E+05            .22096+05                      .14609+05
+   2 0.1098E+06 0.2757E+05                                                    
+   8 0.1430E+06 0.1351E+06                                                    
+   9 0.1433E+06 0.1355E+06                                                    
+  10  7488.     0.1358E+06                                 7487.5201          
+
+    ****  MASS FLOW PROFILES  ****
+
+ STAGE     FLOW RATE                  FEED RATE               PRODUCT RATE
+            KG/HR                      KG/HR                    KG/HR   
+       LIQUID     VAPOR       LIQUID    VAPOR    MIXED      LIQUID    VAPOR
+   1 0.1515E+07 0.1173E+06            .44678+06                      .11730+06
+   2 0.4799E+07 0.1186E+07                                                    
+   8 0.6292E+07 0.5942E+07                                                    
+   9 0.6306E+07 0.5962E+07                                                    
+  10 0.3295E+06 0.5977E+07                                 .32948+06          
+
+                         ****   MOLE-X-PROFILE     ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1    0.15991E-01   0.19996E-02   0.48651E-02   0.41740E-04   0.20748E-02
+      2    0.57925E-02   0.10418E-02   0.25760E-02   0.28310E-04   0.13061E-02
+      8    0.26408E-04   0.24933E-04   0.66248E-04   0.22293E-05   0.71453E-04
+      9    0.10920E-04   0.13426E-04   0.36082E-04   0.14504E-05   0.43849E-04
+     10    0.44655E-05   0.71433E-05   0.19418E-04   0.93304E-06   0.26597E-04
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 17      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B4       MODEL: RADFRAC (CONTINUED)         
+
+                         ****   MOLE-X-PROFILE     ****
+   STAGE     H2S           CO2           NH3     
+      1    0.37888E-03   0.97465       0.57122E-14
+      2    0.36870E-03   0.98889       0.40030E-14
+      8    0.49504E-03   0.99931       0.10072E-13
+      9    0.52588E-03   0.99937       0.13042E-13
+     10    0.56064E-03   0.99938       0.17256E-13
+
+                         ****   MOLE-Y-PROFILE     ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1    0.82965       0.20184E-01   0.48561E-01   0.15131E-03   0.87899E-02
+      2    0.20332E-01   0.25406E-02   0.61809E-02   0.52821E-04   0.26309E-02
+      8    0.66938E-04   0.48201E-04   0.12657E-03   0.35404E-05   0.12062E-03
+      9    0.27621E-04   0.25916E-04   0.68835E-04   0.23010E-05   0.73932E-04
+     10    0.11276E-04   0.13772E-04   0.37000E-04   0.14789E-05   0.44800E-04
+
+                         ****   MOLE-Y-PROFILE     ****
+   STAGE     H2S           CO2           NH3     
+      1    0.31707E-04   0.92628E-01   0.60051E-16
+      2    0.32953E-03   0.96793       0.25775E-14
+      8    0.46249E-03   0.99917       0.74656E-14
+      9    0.49141E-03   0.99931       0.96748E-14
+     10    0.52397E-03   0.99937       0.12809E-13
+
+                         ****   K-VALUES           ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1     51.884        10.094        9.9815        3.6250        4.2366    
+      2     3.5135        2.4407        2.4014        1.8670        2.0155    
+      8     2.5347        1.9332        1.9106        1.5881        1.6880    
+      9     2.5294        1.9303        1.9078        1.5864        1.6860    
+     10     2.5250        1.9279        1.9054        1.5850        1.6844    
+
+                         ****   K-VALUES           ****
+   STAGE     H2S           CO2           NH3     
+      1    0.83685E-01   0.95038E-01   0.10513E-01
+      2    0.89369       0.97881       0.64359    
+      8    0.93425       0.99986       0.74124    
+      9    0.93445       0.99994       0.74185    
+     10    0.93459       0.99999       0.74231    
+
+                         ****   MASS-X-PROFILE     ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1    0.74593E-03   0.12960E-02   0.31537E-02   0.15495E-04   0.19179E-02
+      2    0.26721E-03   0.66779E-03   0.16513E-02   0.10393E-04   0.11940E-02
+      8    0.12098E-05   0.15872E-04   0.42176E-04   0.81279E-06   0.64870E-04
+      9    0.50026E-06   0.85462E-05   0.22970E-04   0.52879E-06   0.39808E-04
+     10    0.20457E-06   0.45471E-05   0.12362E-04   0.34017E-06   0.24145E-04
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 18      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B4       MODEL: RADFRAC (CONTINUED)         
+
+                         ****   MASS-X-PROFILE     ****
+   STAGE     H2S           CO2           NH3     
+      1    0.29881E-03   0.99257       0.22511E-14
+      2    0.28756E-03   0.99592       0.15601E-14
+      8    0.38343E-03   0.99949       0.38982E-14
+      9    0.40731E-03   0.99952       0.50475E-14
+     10    0.43423E-03   0.99952       0.66785E-14
+
+                         ****   MASS-Y-PROFILE     ****
+   STAGE     H2            CO            N2            CH4           AR      
+      1    0.20829       0.70410E-01   0.16942       0.30231E-03   0.43732E-01
+      2    0.95314E-03   0.16549E-02   0.40266E-02   0.19706E-04   0.24441E-02
+      8    0.30669E-05   0.30686E-04   0.80586E-04   0.12909E-05   0.10951E-03
+      9    0.12654E-05   0.16497E-04   0.43824E-04   0.83891E-06   0.67121E-04
+     10    0.51656E-06   0.87666E-05   0.23555E-04   0.53918E-06   0.40671E-04
+
+                         ****   MASS-Y-PROFILE     ****
+   STAGE     H2S           CO2           NH3     
+      1    0.13458E-03   0.50770       0.12737E-15
+      2    0.26118E-03   0.99064       0.10208E-14
+      8    0.35825E-03   0.99942       0.28897E-14
+      9    0.38063E-03   0.99949       0.37445E-14
+     10    0.40583E-03   0.99952       0.49576E-14
+
+ BLOCK:  B5       MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          S5      
+   OUTLET STREAM:         S7      
+   PROPERTY OPTION SET:   PENG-ROB  STANDARD PR EQUATION OF STATE               
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            22096.3         22096.3         0.00000    
+       MASS(KG/HR   )            446777.         446777.         0.00000    
+       ENTHALPY(CAL/SEC )      -0.236422E+09   -0.233149E+09   -0.138423E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             389763.      KG/HR           
+    PRODUCT STREAMS CO2E          389763.      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 19      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B5       MODEL: COMPR (CONTINUED)           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                    70.0000     
+    ISENTROPIC EFFICIENCY                                    0.72000    
+    MECHANICAL EFFICIENCY                                    1.00000    
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW               13,701.8        
+    BRAKE      HORSEPOWER REQUIREMENT  KW               13,701.8        
+    NET WORK REQUIRED                  KW               13,701.8        
+    POWER LOSSES                       KW                    0.0        
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                9,865.31       
+    CALCULATED OUTLET TEMP  C                               37.1148     
+    ISENTROPIC TEMPERATURE  C                               20.0507     
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.72000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                       8,105.91       
+    MECHANICAL EFFICIENCY USED                               1.00000    
+    INLET HEAT CAPACITY RATIO                                1.51237    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                 210,260.         
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                 131,123.         
+    INLET  COMPRESSIBILITY FACTOR                            0.93656    
+    OUTLET COMPRESSIBILITY FACTOR                            0.96616    
+    AV. ISENT. VOL. EXPONENT                                 1.43188    
+    AV. ISENT. TEMP EXPONENT                                 1.38691    
+    AV. ACTUAL VOL. EXPONENT                                 1.64444    
+    AV. ACTUAL TEMP EXPONENT                                 1.54279    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 20      
+                                                                                
+                                 STREAM SECTION                                 
+
+ CO2 FEED H2S S2 S3                              
+ ------------------
+
+ STREAM ID               CO2        FEED       H2S        S2         S3      
+ FROM :                  B4         ----       B3         B1         B2      
+ TO   :                  ----       B1         ----       B2         B3      
+
+ SUBSTREAM: MIXED   
+ PHASE:                  LIQUID     MIXED      LIQUID     MIXED      VAPOR  
+ COMPONENTS: KMOL/HR         
+   H2                  3.3436-02  1.2120+04     0.0     1.2120+04  1.2120+04
+   CO                  5.3486-02   294.9126  2.1808-31   294.9126   294.9126
+   N2                     0.1454   709.5642  2.2721-31   709.5642   709.5642
+   CH4                 6.9862-03     2.2174  1.3648-24     2.2174     2.2174
+   AR                     0.1991   128.6085  1.9227-25   128.6085   128.6085
+   H2S                    4.1978    31.0434    26.3818    31.0434    31.0428
+   CO2                 7482.8840  8836.2912     0.2178  8836.2912  8836.2873
+   NH3                 1.2920-10     4.4348     3.8124     4.4348     3.8124
+   H2O                    0.0       46.5651     4.2378    46.5651     4.2378
+ TOTAL FLOW:         
+   KMOL/HR             7487.5202  2.2174+04    34.6499  2.2174+04  2.2131+04
+   KG/HR               3.2948+05  4.4860+05  1050.0000  4.4860+05  4.4783+05
+   L/MIN               8546.4102  2.8582+05    23.5125  2.4709+05  2.5024+05
+ STATE VARIABLES:    
+   TEMP   C              29.2802    37.0000    50.9903     0.0        0.0   
+   PRES   BAR            70.1000    32.7000    32.3000    32.7000    32.3000
+   VFRAC                  0.0        0.9999     0.0        0.9981     1.0000
+   LFRAC                  1.0000  9.9447-05     1.0000  1.9390-03     0.0   
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL            -9.5901+04 -3.7914+04 -1.6616+04 -3.8237+04 -3.8177+04
+   CAL/GM             -2179.3873 -1874.0625  -548.3175 -1890.0029 -1886.6452
+   CAL/SEC            -1.9946+08 -2.3353+08 -1.5993+05 -2.3552+08 -2.3469+08
+ ENTROPY:            
+   CAL/MOL-K            -13.3820    -4.4086   -12.7441    -5.5145    -5.4165
+   CAL/GM-K              -0.3041    -0.2179    -0.4206    -0.2726    -0.2677
+ DENSITY:            
+   MOL/CC              1.4602-02  1.2930-03  2.4561-02  1.4956-03  1.4740-03
+   GM/CC                  0.6425  2.6158-02     0.7443  3.0258-02  2.9826-02
+ AVG MW                  44.0035    20.2310    30.3032    20.2310    20.2353
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 21      
+                                                                                
+                                 STREAM SECTION                                 
+
+ S4 S5 S7 S9                                     
+ -----------
+
+ STREAM ID               S4         S5         S7         S9      
+ FROM :                  B2         B3         B5         B4      
+ TO   :                  ----       B5         B4         ----    
+
+ SUBSTREAM: MIXED   
+ PHASE:                  LIQUID     VAPOR      VAPOR      VAPOR  
+ COMPONENTS: KMOL/HR         
+   H2                  5.0768-05  1.2120+04  1.2120+04  1.2120+04
+   CO                  4.7840-07   294.9126   294.9126   294.8591
+   N2                  1.3805-06   709.5642   709.5642   709.4188
+   CH4                 4.7582-08     2.2174     2.2174     2.2104
+   AR                  8.3079-06   128.6085   128.6085   128.4094
+   H2S                 6.6544-04     4.6610     4.6610     0.4632
+   CO2                 3.9457-03  8836.0695  8836.0695  1353.1855
+   NH3                    0.6224  1.3008-10  1.3008-10  8.7726-13
+   H2O                   42.3273  2.9634-22  2.9634-22     0.0   
+ TOTAL FLOW:         
+   KMOL/HR               42.9543  2.2096+04  2.2096+04  1.4609+04
+   KG/HR                773.3343  4.4678+05  4.4678+05  1.1730+05
+   L/MIN                 12.7452  2.1026+05  1.3112+05  6.2078+04
+ STATE VARIABLES:    
+   TEMP   C               0.0      -37.0569    37.1148   -60.1947
+   PRES   BAR            32.3000    32.2000    70.0000    69.9000
+   VFRAC                  0.0        1.0000     1.0000     1.0000
+   LFRAC                  1.0000     0.0        0.0        0.0   
+   SFRAC                  0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL            -6.8481+04 -3.8519+04 -3.7985+04 -9882.9512
+   CAL/GM             -3803.7170 -1905.0198 -1878.6499 -1230.8443
+   CAL/SEC            -8.1710+05 -2.3642+08 -2.3315+08 -4.0105+07
+ ENTROPY:            
+   CAL/MOL-K            -41.8328    -6.6264    -6.1315    -9.2074
+   CAL/GM-K              -2.3236    -0.3277    -0.3032    -1.1467
+ DENSITY:            
+   MOL/CC              5.6171-02  1.7515-03  2.8086-03  3.9222-03
+   GM/CC                  1.0113  3.5415-02  5.6789-02  3.1493-02
+ AVG MW                  18.0036    20.2195    20.2195     8.0294
+ ASPEN PLUS   PLAT: WIN-X64   VER: 37.0                   09/03/2024  PAGE 22      
+                                                                                
+                             PROBLEM STATUS SECTION                             
+
+ BLOCK STATUS                            
+ ------------
+
+ ****************************************************************************
+ *                                                                          *
+ * Calculations were completed normally                                     *
+ *                                                                          *
+ * All Unit Operation blocks were completed normally                        *
+ *                                                                          *
+ * All streams were flashed normally                                        *
+ *                                                                          *
+ ****************************************************************************
